@@ -516,7 +516,7 @@ Generate only the test code without any explanations or notes."""
                prompt = self.create_prompt(file_name, language)
               
                if prompt:
-                   test_cases = self.all_openai_api_mini(prompt)
+                   test_cases = self.call_openai_api_mini(prompt)
                   
                    if test_cases:
                        test_cases = test_cases.replace("“", '"').replace("”", '"')
