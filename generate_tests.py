@@ -359,16 +359,11 @@ Generate only the test code without any explanations or notes."""
          'model': self.model,
          'messages': [
              {
-                 "role": "system",
-                 "content": "You are a senior software engineer specialized in writing comprehensive test suites."
-             },
-             {
                  "role": "user",
                  "content": prompt
              }
          ],
-         'max_tokens': self.max_tokens,
-         'temperature': 0.7
+         'max_completion_tokens': self.max_tokens
      }
 
      try:
@@ -376,7 +371,7 @@ Generate only the test code without any explanations or notes."""
              'https://api.openai.com/v1/chat/completions',
              headers=headers,
              json=data,
-             timeout=60
+             timeout=120
          )
          response.raise_for_status()
          generated_text = response.json()['choices'][0]['message']['content']
