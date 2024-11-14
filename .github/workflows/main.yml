@@ -105,5 +105,5 @@ jobs:
            - Edge cases
            - Error handling
            Generated using OpenAI GPT-4
-         destination_branch: "main"
+         destination_branch: "master"
          source_branch: ${{ env.BRANCH_NAME }}
