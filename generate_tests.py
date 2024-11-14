@@ -18,10 +18,10 @@ logging.basicConfig(
 class TestGenerator:
    def __init__(self):
        self.api_key = os.getenv('OPENAI_API_KEY')
-       self.model = os.getenv('OPENAI_MODEL', 'o1-preview')
+       self.model = os.getenv('OPENAI_MODEL', 'o1-mini')
       
        try:
-           self.max_tokens = int(os.getenv('OPENAI_MAX_TOKENS', '10000'))
+           self.max_tokens = int(os.getenv('OPENAI_MAX_TOKENS', '2000'))
        except ValueError:
            logging.error("Invalid value for OPENAI_MAX_TOKENS. Using default value: 2000")
            self.max_tokens = 2000
@@ -432,7 +432,7 @@ Generate only the test code without any explanations or notes."""
              if normalized_text.endswith('```'):
                  normalized_text = normalized_text[:-3]
          logging.info("returning API call response")
-         logging.info(f"here is the normalized_text"+ normalized_text)
+         logging.info(f"here is the normalized_text"+ normalized_text+ "end of normalized text")
          return normalized_text.strip()
      except RequestException as e:
          logging.error(f"API request failed: {e}, Response: {response.text}")
