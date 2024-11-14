@@ -105,5 +105,6 @@ jobs:
            - Edge cases
            - Error handling
            Generated using OpenAI GPT-4
-         destination_branch: "master"
+         destination_branch: "main"
          source_branch: ${{ env.BRANCH_NAME }}
+         destination_repository: efoley123/istio
