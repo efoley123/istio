@@ -5,6 +5,7 @@ push:
     - main
     - "feature/*"
     - master
+    - eleanor-br
   paths:
     - '**.py'
     - '**.js'
@@ -54,7 +55,7 @@ generate-tests:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         OPENAI_MODEL: "o1-mini"  # Set default model
-        OPENAI_MAX_TOKENS: "4000"  # Set default max tokens
+        OPENAI_MAX_TOKENS: "6000"  # Set default max tokens
       run: |
         echo "Generating tests for: ${{ env.CHANGED_FILES }}"
         python generate_tests.py "${{ env.CHANGED_FILES }}"
