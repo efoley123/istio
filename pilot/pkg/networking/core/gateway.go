@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// testing here below
+// testing here
 package core
 
 import (
