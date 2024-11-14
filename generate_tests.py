@@ -520,6 +520,7 @@ Generate only the test code without any explanations or notes."""
                    test_cases = self.call_openai_api_mini(prompt)
                   
                    if test_cases:
+                       logging.info("We recieved test cases")
                        test_cases = test_cases.replace("“", '"').replace("”", '"')
                        self.ensure_coverage_installed(language)
 
