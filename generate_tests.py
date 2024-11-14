@@ -432,7 +432,7 @@ Generate only the test code without any explanations or notes."""
              if normalized_text.endswith('```'):
                  normalized_text = normalized_text[:-3]
          logging.info("returning API call response")
-         logging.info(f"here is the normalized_text"+ normalized_text+ "end of normalized text")
+         logging.info(f"here is the normalized_text"+ {normalized_text}+ "end of normalized text")
          return normalized_text.strip()
      except RequestException as e:
          logging.error(f"API request failed: {e}, Response: {response.text}")
