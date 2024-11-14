@@ -359,11 +359,16 @@ Generate only the test code without any explanations or notes."""
          'model': self.model,
          'messages': [
              {
+                 "role": "system",
+                 "content": "You are a senior software engineer specialized in writing comprehensive test suites."
+             },
+             {
                  "role": "user",
                  "content": prompt
              }
          ],
-         'max_completion_tokens': self.max_tokens
+         'max_tokens': self.max_tokens,
+         'temperature': 0.7
      }
 
      try:
@@ -371,7 +376,7 @@ Generate only the test code without any explanations or notes."""
              'https://api.openai.com/v1/chat/completions',
              headers=headers,
              json=data,
-             timeout=120
+             timeout=60
          )
          response.raise_for_status()
          generated_text = response.json()['choices'][0]['message']['content']
@@ -426,6 +431,7 @@ Generate only the test code without any explanations or notes."""
                  normalized_text = normalized_text[3:]
              if normalized_text.endswith('```'):
                  normalized_text = normalized_text[:-3]
+         logging.info("returning API call response")
          return normalized_text.strip()
      except RequestException as e:
          logging.error(f"API request failed: {e}, Response: {response.text}")
